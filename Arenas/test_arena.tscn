@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://crhtid1xla64c"]
+[gd_scene load_steps=30 format=3 uid="uid://crhtid1xla64c"]
 
 [ext_resource type="Script" path="res://Arenas/test_arena.gd" id="1_gqnpy"]
 [ext_resource type="Texture2D" uid="uid://5pvi2fwkohdp" path="res://Textures/Skybox/panorama_image.png" id="2_0mlyp"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bdgjmapd785cg" path="res://Control_Scene/pause_menu.tscn" id="6_dbujg"]
 [ext_resource type="PackedScene" uid="uid://cn5uunxn2kvwt" path="res://Fists/Basic_fist/basicfist.tscn" id="7_u2bv5"]
 [ext_resource type="PackedScene" uid="uid://dqtyqyn15tw8q" path="res://enemies/Cubic/cucubic.tscn" id="8_fe5ne"]
+[ext_resource type="PackedScene" uid="uid://12j04wyb5g4h" path="res://Arenas/common_obstacle/jump_ramp.tscn" id="12_p0w53"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_63ofc"]
 panorama = ExtResource("2_0mlyp")
@@ -87,6 +88,12 @@ data = PackedVector3Array(-29, 5, 0.5, 29, 5, 0.5, -29, -5, 0.5, 29, 5, 0.5, 29,
 [node name="Test_Arean" type="Node3D"]
 process_mode = 3
 script = ExtResource("1_gqnpy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.500003, -1.81001e-06, 0, -3.61999e-06, 1, -0.500003, 0.866023, 3.135e-06, 0, 0, 0)
+light_color = Color(1, 1, 0.866667, 1)
+light_energy = 1.25
+shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1nb0b")
@@ -200,3 +207,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.2071, 1.78888, 13.8566)
 
 [node name="lava_floor" parent="Level_obstacle" instance=ExtResource("3_k6u8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 5.71, 22, 0, 0)
+
+[node name="jump_ramp" parent="." instance=ExtResource("12_p0w53")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 2)

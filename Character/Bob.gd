@@ -3,9 +3,9 @@ extends CharacterBody3D
 #vars 
 @export var health: float = 100
 var SPEED 
-var normal_speed = 5.0
-var sprint_speed = 9.0
-var JUMP_VELOCITY = 4.5
+var normal_speed = Globvar.normal_speed
+var sprint_speed = Globvar.sprint_speed
+var JUMP_VELOCITY = Globvar.jump_velocity
 var sensitivity = 0.12
 var gravity = Globvar.gravity
 var num_of_jumps = 0
@@ -33,6 +33,7 @@ func damage(hit_points):
 #updating healthbar
 func update_health_bar():
 	health_bar.value = health
+
 
 func die():
 	pass
