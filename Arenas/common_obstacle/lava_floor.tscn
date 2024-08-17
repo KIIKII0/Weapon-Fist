@@ -34,5 +34,5 @@ shape = SubResource("ConcavePolygonShape3D_2e4x4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00479126)
 shape = SubResource("BoxShape3D_3erdr")
 
-[connection signal="body_entered" from="hurt_box" to="." method="_on_hit_area_body_entered"]
 [connection signal="body_entered" from="hurt_box" to="." method="_on_hurt_box_body_entered"]
+[connection signal="body_entered" from="hurt_box" to="." method="_on_hit_area_body_entered"]

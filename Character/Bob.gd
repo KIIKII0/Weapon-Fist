@@ -4,7 +4,7 @@ extends CharacterBody3D
 @export var health: float = 100
 var SPEED 
 var normal_speed = Globvar.normal_speed
-var sprint_speed = Globvar.sprint_speed
+var sprint_speed = Globvar.normal_speed * 1.7
 var JUMP_VELOCITY = Globvar.jump_velocity
 var sensitivity = 0.12
 var gravity = Globvar.gravity
@@ -34,7 +34,6 @@ func damage(hit_points):
 func update_health_bar():
 	health_bar.value = health
 
-
 func die():
 	pass
 
@@ -47,7 +46,6 @@ func _input(event):
 		rotate_y(deg_to_rad((-event.relative.x * sensitivity)))
 		head.rotate_x(deg_to_rad((-event.relative.y * sensitivity)))
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-90),deg_to_rad(90))
-
 
 #handle and check what are player looking for
 func what_coliding():
