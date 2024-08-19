@@ -1,17 +1,16 @@
 [gd_scene load_steps=27 format=3 uid="uid://crhtid1xla64c"]
 
 [ext_resource type="Script" path="res://Levels/test_arena.gd" id="1_gqnpy"]
-[ext_resource type="Texture2D" uid="uid://5pvi2fwkohdp" path="res://build material/Skybox/panorama_image.png" id="2_0mlyp"]
-[ext_resource type="Texture2D" uid="uid://0oofkfu2vpgg" path="res://build material/addons/kenney_prototype_textures/dark/texture_04.png" id="2_4eewi"]
-[ext_resource type="Texture2D" uid="uid://bvgqjnvllswxv" path="res://build material/addons/kenney_prototype_textures/orange/texture_10.png" id="2_q5w6b"]
 [ext_resource type="PackedScene" uid="uid://dtpsxrfqijcq7" path="res://Character/Bob.tscn" id="2_wkij7"]
-[ext_resource type="Texture2D" uid="uid://x0y2dgnrfieg" path="res://build material/floor-walls/Tiles002_4K-JPG_Displacement.jpg" id="4_o5ivn"]
 [ext_resource type="PackedScene" uid="uid://fpomlve2vlx2" path="res://Fists/knocback_fist/knocbackfist.tscn" id="5_we1k7"]
 [ext_resource type="PackedScene" uid="uid://bdgjmapd785cg" path="res://Control_Scene/pause_menu.tscn" id="6_dbujg"]
 [ext_resource type="PackedScene" uid="uid://cn5uunxn2kvwt" path="res://Fists/Basic_fist/basicfist.tscn" id="7_u2bv5"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ww15y"]
+load_path = "res://.godot/imported/panorama_image.png-a91016f4dd69308b3de06167c4926844.s3tc.ctex"
+
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_63ofc"]
-panorama = ExtResource("2_0mlyp")
+panorama = SubResource("CompressedTexture2D_ww15y")
 
 [sub_resource type="Sky" id="Sky_p23ba"]
 sky_material = SubResource("PanoramaSkyMaterial_63ofc")
@@ -27,10 +26,13 @@ vertices = PackedVector3Array(22.2, 0.5, -3.3, 22.8, 0.5, -3.3, 22.8, 0.5, -11.1
 polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(4, 3, 5), PackedInt32Array(5, 3, 6), PackedInt32Array(8, 7, 9), PackedInt32Array(9, 7, 10), PackedInt32Array(12, 11, 13), PackedInt32Array(13, 11, 15), PackedInt32Array(13, 15, 14), PackedInt32Array(17, 16, 18), PackedInt32Array(18, 16, 19), PackedInt32Array(21, 20, 22), PackedInt32Array(22, 20, 23), PackedInt32Array(25, 24, 26), PackedInt32Array(26, 24, 27), PackedInt32Array(30, 29, 28), PackedInt32Array(32, 31, 33), PackedInt32Array(33, 31, 36), PackedInt32Array(33, 36, 35), PackedInt32Array(33, 35, 34), PackedInt32Array(37, 40, 38), PackedInt32Array(38, 40, 39), PackedInt32Array(42, 41, 43), PackedInt32Array(43, 41, 44), PackedInt32Array(47, 46, 45), PackedInt32Array(49, 48, 50), PackedInt32Array(50, 48, 51), PackedInt32Array(51, 48, 52), PackedInt32Array(52, 48, 53), PackedInt32Array(56, 55, 54), PackedInt32Array(58, 57, 59), PackedInt32Array(59, 57, 60), PackedInt32Array(63, 62, 61), PackedInt32Array(65, 64, 66), PackedInt32Array(66, 64, 67), PackedInt32Array(67, 64, 68), PackedInt32Array(68, 64, 69), PackedInt32Array(71, 70, 72), PackedInt32Array(72, 70, 73), PackedInt32Array(76, 75, 77), PackedInt32Array(77, 75, 74), PackedInt32Array(81, 80, 78), PackedInt32Array(78, 80, 79), PackedInt32Array(83, 82, 84), PackedInt32Array(84, 82, 85), PackedInt32Array(88, 87, 86), PackedInt32Array(90, 89, 91), PackedInt32Array(91, 89, 92), PackedInt32Array(95, 94, 96), PackedInt32Array(96, 94, 93), PackedInt32Array(98, 97, 99), PackedInt32Array(99, 97, 100), PackedInt32Array(102, 101, 103), PackedInt32Array(103, 101, 104), PackedInt32Array(107, 106, 105), PackedInt32Array(109, 108, 110), PackedInt32Array(110, 108, 113), PackedInt32Array(110, 113, 112), PackedInt32Array(110, 112, 111), PackedInt32Array(116, 115, 114), PackedInt32Array(118, 117, 119), PackedInt32Array(119, 117, 120), PackedInt32Array(124, 123, 121), PackedInt32Array(121, 123, 122), PackedInt32Array(125, 128, 126), PackedInt32Array(126, 128, 127), PackedInt32Array(130, 129, 131), PackedInt32Array(131, 129, 132), PackedInt32Array(134, 133, 135), PackedInt32Array(135, 133, 136), PackedInt32Array(137, 139, 138), PackedInt32Array(141, 140, 142), PackedInt32Array(142, 140, 143), PackedInt32Array(143, 140, 144), PackedInt32Array(144, 140, 145)]
 cell_size = 0.1
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_31w6b"]
+load_path = "res://.godot/imported/texture_10.png-d1ac63c4eac8ab9bbc0e27d4c5f33e76.s3tc.ctex"
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p8jbc"]
 diffuse_mode = 3
 specular_mode = 1
-albedo_texture = ExtResource("2_q5w6b")
+albedo_texture = SubResource("CompressedTexture2D_31w6b")
 roughness = 0.0
 uv1_triplanar = true
 
@@ -48,7 +50,7 @@ data = PackedVector3Array(7.5, 1.5, 2.5, 2.5, -1.5, 2.5, -2.5, -1.5, 2.5, 7.5, 1
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kkdua"]
 diffuse_mode = 3
 specular_mode = 1
-albedo_texture = ExtResource("2_q5w6b")
+albedo_texture = SubResource("CompressedTexture2D_31w6b")
 roughness = 0.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_pse80"]
@@ -58,8 +60,11 @@ size = Vector3(1, 3, 1)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_uhps5"]
 data = PackedVector3Array(-0.5, 1.5, 0.5, 0.5, 1.5, 0.5, -0.5, -1.5, 0.5, 0.5, 1.5, 0.5, 0.5, -1.5, 0.5, -0.5, -1.5, 0.5, 0.5, 1.5, -0.5, -0.5, 1.5, -0.5, 0.5, -1.5, -0.5, -0.5, 1.5, -0.5, -0.5, -1.5, -0.5, 0.5, -1.5, -0.5, 0.5, 1.5, 0.5, 0.5, 1.5, -0.5, 0.5, -1.5, 0.5, 0.5, 1.5, -0.5, 0.5, -1.5, -0.5, 0.5, -1.5, 0.5, -0.5, 1.5, -0.5, -0.5, 1.5, 0.5, -0.5, -1.5, -0.5, -0.5, 1.5, 0.5, -0.5, -1.5, 0.5, -0.5, -1.5, -0.5, 0.5, 1.5, 0.5, -0.5, 1.5, 0.5, 0.5, 1.5, -0.5, -0.5, 1.5, 0.5, -0.5, 1.5, -0.5, 0.5, 1.5, -0.5, -0.5, -1.5, 0.5, 0.5, -1.5, 0.5, -0.5, -1.5, -0.5, 0.5, -1.5, 0.5, 0.5, -1.5, -0.5, -0.5, -1.5, -0.5)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cg5ac"]
+load_path = "res://.godot/imported/Tiles002_4K-JPG_Displacement.jpg-4c63625289115af91a5398b6c3dc73b2.s3tc.ctex"
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jloqf"]
-albedo_texture = ExtResource("4_o5ivn")
+albedo_texture = SubResource("CompressedTexture2D_cg5ac")
 uv1_scale = Vector3(10, 10, 10)
 uv1_triplanar = true
 
@@ -69,9 +74,12 @@ material = SubResource("StandardMaterial3D_jloqf")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_eb1b7"]
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gqp2c"]
+load_path = "res://.godot/imported/texture_04.png-2acfe8d2832b00fa5ceaf635a3d1852b.s3tc.ctex"
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y87vk"]
 diffuse_mode = 3
-albedo_texture = ExtResource("2_4eewi")
+albedo_texture = SubResource("CompressedTexture2D_gqp2c")
 roughness = 0.0
 uv1_triplanar = true
 
