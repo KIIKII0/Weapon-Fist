@@ -12,4 +12,4 @@ func _on_exit_button_pressed():
 
 
 func _on_test_button_pressed():
-	get_tree().change_scene_to_file("res://Arenas/test_arena.tscn")
+	get_tree().change_scene_to_file("res://Levels/test_arena.tscn")
