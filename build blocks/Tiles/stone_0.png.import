@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://e6er0ydak6sp"
-path.s3tc="res://.godot/imported/floor_1_0.png-b63eee9765db2bffabb53a370024fd32.s3tc.ctex"
+uid="uid://h7v1lfysso78"
+path.s3tc="res://.godot/imported/stone_0.png-b26e73dbdaff02ef0436b11cb2c36f01.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "053faa4b239ff924411b9fe4ca29fa0d"
+"md5": "3fcce0aa74fcc51bfb66080683d3915f"
 }
 
 [deps]
 
-source_file="res://build blocks/floor_1/floor_1_0.png"
-dest_files=["res://.godot/imported/floor_1_0.png-b63eee9765db2bffabb53a370024fd32.s3tc.ctex"]
+source_file="res://build blocks/Tiles/stone_0.png"
+dest_files=["res://.godot/imported/stone_0.png-b26e73dbdaff02ef0436b11cb2c36f01.s3tc.ctex"]
 
 [params]
 
