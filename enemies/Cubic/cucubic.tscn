@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dqtyqyn15tw8q"]
+[gd_scene load_steps=9 format=3 uid="uid://dqtyqyn15tw8q"]
 
 [ext_resource type="Script" path="res://enemies/Cubic/cucubic.gd" id="1_58xld"]
-[ext_resource type="Texture2D" uid="uid://l30qtvhlhmxv" path="res://addons/kenney_prototype_textures/red/texture_03.png" id="1_ivhm0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pyowp"]
 
@@ -9,7 +8,6 @@
 diffuse_mode = 3
 specular_mode = 1
 albedo_color = Color(0.678352, 0.000346638, 0.678347, 1)
-albedo_texture = ExtResource("1_ivhm0")
 roughness = 0.0
 uv1_triplanar = true
 

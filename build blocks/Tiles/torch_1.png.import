@@ -2,25 +2,25 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdfmnhfhmtcvu"
-path.bptc="res://.godot/imported/dirt_0.png-93417f8490daefb41493ffa3c0690455.bptc.ctex"
+uid="uid://6bm8ixxobywt"
+path.s3tc="res://.godot/imported/torch_1.png-65bde8ae1179d4dfbc151d343bdd617e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "f9a2e29410ebcccb2659fe2eea9534b7"
+"md5": "18824422588b8b1f3730cb082bc267aa"
 }
 
 [deps]
 
-source_file="res://build blocks/Tiles/dirt_0.png"
-dest_files=["res://.godot/imported/dirt_0.png-93417f8490daefb41493ffa3c0690455.bptc.ctex"]
+source_file="res://build blocks/Tiles/torch_1.png"
+dest_files=["res://.godot/imported/torch_1.png-65bde8ae1179d4dfbc151d343bdd617e.s3tc.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=true
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

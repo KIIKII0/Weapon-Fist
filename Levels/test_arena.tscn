@@ -1,9 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://crhtid1xla64c"]
+[gd_scene load_steps=28 format=3 uid="uid://crhtid1xla64c"]
 
 [ext_resource type="Script" path="res://Levels/test_arena.gd" id="1_gqnpy"]
 [ext_resource type="PackedScene" uid="uid://dtpsxrfqijcq7" path="res://Character/Bob.tscn" id="2_wkij7"]
 [ext_resource type="PackedScene" uid="uid://fpomlve2vlx2" path="res://Fists/knocback_fist/knocbackfist.tscn" id="5_we1k7"]
 [ext_resource type="PackedScene" uid="uid://bdgjmapd785cg" path="res://Control_Scene/pause_menu.tscn" id="6_dbujg"]
+[ext_resource type="PackedScene" uid="uid://cjpg0ftccogs1" path="res://build blocks/Tiles/torch.tscn" id="6_hcf6g"]
 [ext_resource type="PackedScene" uid="uid://cn5uunxn2kvwt" path="res://Fists/Basic_fist/basicfist.tscn" id="7_u2bv5"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ww15y"]
@@ -93,12 +94,6 @@ data = PackedVector3Array(-29, 5, 0.5, 29, 5, 0.5, -29, -5, 0.5, 29, 5, 0.5, 29,
 [node name="Test_Arean" type="Node3D"]
 process_mode = 3
 script = ExtResource("1_gqnpy")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.500003, -1.81001e-06, 0, -3.61999e-06, 1, -0.500003, 0.866023, 3.135e-06, 0, 0, 0)
-light_color = Color(1, 1, 0.866667, 1)
-light_energy = 1.25
-shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1nb0b")
@@ -206,3 +201,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 [node name="Pause_Menu" parent="." instance=ExtResource("6_dbujg")]
 
 [node name="Level_obstacle" type="Node" parent="."]
+
+[node name="torch" parent="." instance=ExtResource("6_hcf6g")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -15, 0, -1)

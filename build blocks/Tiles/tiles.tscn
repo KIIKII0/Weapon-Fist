@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://bu8n4108vd5xa"]
+[gd_scene load_steps=27 format=3 uid="uid://bu8n4108vd5xa"]
 
 [ext_resource type="Texture2D" uid="uid://8ffhx0i1278r" path="res://build blocks/Tiles/mesh_stone_0.png" id="1_lvj4x"]
 [ext_resource type="Texture2D" uid="uid://h7v1lfysso78" path="res://build blocks/Tiles/stone_0.png" id="2_psqio"]
 [ext_resource type="Texture2D" uid="uid://bdfmnhfhmtcvu" path="res://build blocks/Tiles/dirt_0.png" id="3_j6vtc"]
+[ext_resource type="Texture2D" uid="uid://bd3ifcfsm7c6b" path="res://build blocks/Tiles/wood_0.png" id="4_431ri"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bf0kb"]
 resource_name = "material_0"
@@ -139,10 +140,184 @@ shadow_mesh = SubResource("ArrayMesh_b2las")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_b8uvf"]
 data = PackedVector3Array(0.9375, 1, 0.9375, 0.9375, 1, -0.0625, 0.9375, 0, 0.9375, 0.9375, 0, 0.9375, 0.9375, 1, -0.0625, 0.9375, 0, -0.0625, -0.0625, 1, -0.0625, -0.0625, 1, 0.9375, -0.0625, 0, -0.0625, -0.0625, 0, -0.0625, -0.0625, 1, 0.9375, -0.0625, 0, 0.9375, -0.0625, 1, -0.0625, 0.9375, 1, -0.0625, -0.0625, 1, 0.9375, -0.0625, 1, 0.9375, 0.9375, 1, -0.0625, 0.9375, 1, 0.9375, -0.0625, 0, 0.9375, 0.9375, 0, 0.9375, -0.0625, 0, -0.0625, -0.0625, 0, -0.0625, 0.9375, 0, 0.9375, 0.9375, 0, -0.0625, -0.0625, 1, 0.9375, 0.9375, 1, 0.9375, -0.0625, 0, 0.9375, -0.0625, 0, 0.9375, 0.9375, 1, 0.9375, 0.9375, 0, 0.9375, 0.9375, 1, -0.0625, -0.0625, 1, -0.0625, 0.9375, 0, -0.0625, 0.9375, 0, -0.0625, -0.0625, 1, -0.0625, -0.0625, 0, -0.0625)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q6tyn"]
+resource_name = "material_0"
+transparency = 2
+alpha_scissor_threshold = 0.05
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("4_431ri")
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_eaxn4"]
+_surfaces = [{
+"aabb": AABB(-0.0625, 0, -0.0625, 1.00001, 1.00001, 1.00001),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0, 4, 0, 1, 0, 5, 0, 5, 0, 1, 0, 0, 0, 7, 0, 2, 0, 6, 0, 6, 0, 2, 0, 3, 0, 5, 0, 0, 0, 7, 0, 7, 0, 0, 0, 2, 0, 1, 0, 4, 0, 3, 0, 3, 0, 4, 0, 6, 0),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(254, 255, 254, 255, 254, 255, 0, 0, 254, 255, 254, 255, 0, 0, 0, 0, 254, 255, 0, 0, 254, 255, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 254, 255, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 254, 255, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_a3apt"]
+resource_name = "blockbench_export_mesh"
+_surfaces = [{
+"aabb": AABB(-0.0625, 0, -0.0625, 1.00001, 1.00001, 1.00001),
+"attribute_data": PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0, 8, 0, 9, 0, 10, 0, 10, 0, 9, 0, 11, 0, 12, 0, 13, 0, 14, 0, 14, 0, 13, 0, 15, 0, 16, 0, 17, 0, 18, 0, 18, 0, 17, 0, 19, 0, 20, 0, 21, 0, 22, 0, 22, 0, 21, 0, 23, 0),
+"material": SubResource("StandardMaterial3D_q6tyn"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(254, 255, 254, 255, 254, 255, 255, 191, 254, 255, 254, 255, 0, 0, 255, 191, 254, 255, 0, 0, 254, 255, 255, 191, 254, 255, 0, 0, 0, 0, 255, 191, 0, 0, 254, 255, 0, 0, 255, 191, 0, 0, 254, 255, 254, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 0, 0, 0, 0, 254, 255, 255, 191, 0, 0, 254, 255, 0, 0, 255, 191, 254, 255, 254, 255, 0, 0, 255, 191, 0, 0, 254, 255, 254, 255, 255, 191, 254, 255, 254, 255, 254, 255, 255, 191, 0, 0, 0, 0, 254, 255, 255, 191, 254, 255, 0, 0, 254, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 254, 255, 0, 0, 0, 0, 255, 191, 0, 0, 254, 255, 254, 255, 0, 128, 254, 255, 254, 255, 254, 255, 0, 128, 0, 0, 0, 0, 254, 255, 0, 128, 254, 255, 0, 0, 254, 255, 0, 128, 254, 255, 254, 255, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_eaxn4")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8soie"]
+data = PackedVector3Array(0.9375, 1, 0.9375, 0.9375, 1, -0.0625, 0.9375, 0, 0.9375, 0.9375, 0, 0.9375, 0.9375, 1, -0.0625, 0.9375, 0, -0.0625, -0.0625, 1, -0.0625, -0.0625, 1, 0.9375, -0.0625, 0, -0.0625, -0.0625, 0, -0.0625, -0.0625, 1, 0.9375, -0.0625, 0, 0.9375, -0.0625, 1, -0.0625, 0.9375, 1, -0.0625, -0.0625, 1, 0.9375, -0.0625, 1, 0.9375, 0.9375, 1, -0.0625, 0.9375, 1, 0.9375, -0.0625, 0, 0.9375, 0.9375, 0, 0.9375, -0.0625, 0, -0.0625, -0.0625, 0, -0.0625, 0.9375, 0, 0.9375, 0.9375, 0, -0.0625, -0.0625, 1, 0.9375, 0.9375, 1, 0.9375, -0.0625, 0, 0.9375, -0.0625, 0, 0.9375, 0.9375, 1, 0.9375, 0.9375, 0, 0.9375, 0.9375, 1, -0.0625, -0.0625, 1, -0.0625, 0.9375, 0, -0.0625, 0.9375, 0, -0.0625, -0.0625, 1, -0.0625, -0.0625, 0, -0.0625)
+
+[sub_resource type="Shader" id="Shader_x1uf3"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.2.2.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix,depth_draw_always,cull_back,diffuse_burley,specular_schlick_ggx;
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color,filter_linear_mipmap,repeat_enable;
+uniform float point_size : hint_range(0,128);
+uniform float roughness : hint_range(0,1);
+uniform sampler2D texture_metallic : hint_default_white,filter_linear_mipmap,repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r,filter_linear_mipmap,repeat_enable;
+uniform float specular;
+uniform float metallic;
+uniform sampler2D texture_refraction : filter_linear_mipmap,repeat_enable;
+uniform float refraction : hint_range(-16,16);
+uniform vec4 refraction_texture_channel;
+uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_linear_mipmap;uniform sampler2D texture_normal : hint_roughness_normal,filter_linear_mipmap,repeat_enable;
+uniform float normal_scale : hint_range(-16,16);
+varying vec3 uv1_triplanar_pos;
+uniform float uv1_blend_sharpness;
+varying vec3 uv1_power_normal;
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+
+void vertex() {
+	vec3 normal = NORMAL;
+	TANGENT = vec3(0.0,0.0,-1.0) * abs(normal.x);
+	TANGENT+= vec3(1.0,0.0,0.0) * abs(normal.y);
+	TANGENT+= vec3(1.0,0.0,0.0) * abs(normal.z);
+	TANGENT = normalize(TANGENT);
+	BINORMAL = vec3(0.0,1.0,0.0) * abs(normal.x);
+	BINORMAL+= vec3(0.0,0.0,-1.0) * abs(normal.y);
+	BINORMAL+= vec3(0.0,1.0,0.0) * abs(normal.z);
+	BINORMAL = normalize(BINORMAL);
+	uv1_power_normal=pow(abs(NORMAL),vec3(uv1_blend_sharpness));
+	uv1_triplanar_pos = VERTEX * uv1_scale + uv1_offset + TIME * 0.02;
+	uv1_power_normal/=dot(uv1_power_normal,vec3(1.0));
+	uv1_triplanar_pos *= vec3(1.0,-1.0, 1.0);
+}
+
+
+
+
+vec4 triplanar_texture(sampler2D p_sampler,vec3 p_weights,vec3 p_triplanar_pos) {
+	vec4 samp=vec4(0.0);
+	samp+= texture(p_sampler,p_triplanar_pos.xy) * p_weights.z;
+	samp+= texture(p_sampler,p_triplanar_pos.xz) * p_weights.y;
+	samp+= texture(p_sampler,p_triplanar_pos.zy * vec2(-1.0,1.0)) * p_weights.x;
+	return samp;
+}
+
+
+void fragment() {
+	vec4 albedo_tex = triplanar_texture(texture_albedo,uv1_power_normal,uv1_triplanar_pos);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+	float metallic_tex = dot(triplanar_texture(texture_metallic,uv1_power_normal,uv1_triplanar_pos),metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	vec4 roughness_texture_channel = vec4(1.0,0.0,0.0,0.0);
+	float roughness_tex = dot(triplanar_texture(texture_roughness,uv1_power_normal,uv1_triplanar_pos),roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+	SPECULAR = specular;
+	NORMAL_MAP = triplanar_texture(texture_normal,uv1_power_normal,uv1_triplanar_pos).rgb;
+	NORMAL_MAP_DEPTH = normal_scale;
+	vec3 unpacked_normal = NORMAL_MAP;
+	unpacked_normal.xy = unpacked_normal.xy * 2.0 - 1.0;
+	unpacked_normal.z = sqrt(max(0.0, 1.0 - dot(unpacked_normal.xy, unpacked_normal.xy)));
+	vec3 ref_normal = normalize( mix(NORMAL,TANGENT * unpacked_normal.x + BINORMAL * unpacked_normal.y + NORMAL * unpacked_normal.z,NORMAL_MAP_DEPTH) );
+	vec2 ref_ofs = SCREEN_UV - ref_normal.xy * dot(triplanar_texture(texture_refraction,uv1_power_normal,uv1_triplanar_pos),refraction_texture_channel) * refraction;
+	float ref_amount = 1.0 - albedo.a * albedo_tex.a;
+	EMISSION += textureLod(screen_texture,ref_ofs,ROUGHNESS * 8.0).rgb * ref_amount * EXPOSURE;
+	ALBEDO *= 1.0 - ref_amount;
+	ALPHA = 1.0;
+}
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dcq4a"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ad7lw"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_dcq4a")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sj2dk"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_dcq4a")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_klka2"]
+render_priority = 0
+shader = SubResource("Shader_x1uf3")
+shader_parameter/albedo = Color(0, 0.356863, 0.67451, 0.419608)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 0.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/refraction = 0.05
+shader_parameter/refraction_texture_channel = null
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_blend_sharpness = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/texture_refraction = SubResource("NoiseTexture2D_sj2dk")
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_ad7lw")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_2neq4"]
+resource_name = "blockbench_export_mesh"
+_surfaces = [{
+"aabb": AABB(-0.0625, 0, -0.0625, 1.00001, 1.00001, 1.00001),
+"attribute_data": PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0, 8, 0, 9, 0, 10, 0, 10, 0, 9, 0, 11, 0, 12, 0, 13, 0, 14, 0, 14, 0, 13, 0, 15, 0, 16, 0, 17, 0, 18, 0, 18, 0, 17, 0, 19, 0, 20, 0, 21, 0, 22, 0, 22, 0, 21, 0, 23, 0),
+"material": SubResource("ShaderMaterial_klka2"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(254, 255, 254, 255, 254, 255, 255, 191, 254, 255, 254, 255, 0, 0, 255, 191, 254, 255, 0, 0, 254, 255, 255, 191, 254, 255, 0, 0, 0, 0, 255, 191, 0, 0, 254, 255, 0, 0, 255, 191, 0, 0, 254, 255, 254, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 0, 0, 0, 0, 254, 255, 255, 191, 0, 0, 254, 255, 0, 0, 255, 191, 254, 255, 254, 255, 0, 0, 255, 191, 0, 0, 254, 255, 254, 255, 255, 191, 254, 255, 254, 255, 254, 255, 255, 191, 0, 0, 0, 0, 254, 255, 255, 191, 254, 255, 0, 0, 254, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 254, 255, 0, 0, 0, 0, 255, 191, 0, 0, 254, 255, 254, 255, 0, 128, 254, 255, 254, 255, 254, 255, 0, 128, 0, 0, 0, 0, 254, 255, 0, 128, 254, 255, 0, 0, 254, 255, 0, 128, 254, 255, 254, 255, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255)
+}]
+blend_shape_mode = 0
+
 [node name="tiles" type="Node3D"]
 
 [node name="mesh_stone" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4375, 0, -0.4375)
+visible = false
 mesh = SubResource("ArrayMesh_ubflx")
 skeleton = NodePath("")
 
@@ -153,6 +328,7 @@ shape = SubResource("ConcavePolygonShape3D_263fs")
 
 [node name="stone" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4375, 0, -0.4375)
+visible = false
 mesh = SubResource("ArrayMesh_j8x26")
 skeleton = NodePath("")
 
@@ -170,3 +346,20 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dirt/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_b8uvf")
+
+[node name="wood" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4375, 0, -0.4375)
+visible = false
+mesh = SubResource("ArrayMesh_a3apt")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wood"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wood/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_8soie")
+
+[node name="water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.437, 0, -0.437)
+visible = false
+mesh = SubResource("ArrayMesh_2neq4")
+skeleton = NodePath("")
