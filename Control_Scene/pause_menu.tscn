@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bdgjmapd785cg"]
 
 [ext_resource type="Script" path="res://Control_Scene/pause_menu.gd" id="1_2jbkn"]
-[ext_resource type="FontFile" uid="uid://ck58vmk5rlg2b" path="res://Textures/Font/Xolonium-Regular.ttf" id="2_8qwm7"]
+[ext_resource type="FontFile" uid="uid://ck58vmk5rlg2b" path="res://build blocks/Font/Xolonium-Regular.ttf" id="2_8qwm7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvsff"]
 bg_color = Color(0.132552, 0.0395553, 0.524484, 1)

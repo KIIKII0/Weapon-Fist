@@ -1,10 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://crhtid1xla64c"]
+[gd_scene load_steps=27 format=3 uid="uid://crhtid1xla64c"]
 
 [ext_resource type="Script" path="res://Levels/test_arena.gd" id="1_gqnpy"]
 [ext_resource type="PackedScene" uid="uid://dtpsxrfqijcq7" path="res://Character/Bob.tscn" id="2_wkij7"]
 [ext_resource type="PackedScene" uid="uid://fpomlve2vlx2" path="res://Fists/knocback_fist/knocbackfist.tscn" id="5_we1k7"]
 [ext_resource type="PackedScene" uid="uid://bdgjmapd785cg" path="res://Control_Scene/pause_menu.tscn" id="6_dbujg"]
-[ext_resource type="PackedScene" uid="uid://cjpg0ftccogs1" path="res://build blocks/Tiles/torch.tscn" id="6_hcf6g"]
 [ext_resource type="PackedScene" uid="uid://cn5uunxn2kvwt" path="res://Fists/Basic_fist/basicfist.tscn" id="7_u2bv5"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ww15y"]
@@ -201,6 +200,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 [node name="Pause_Menu" parent="." instance=ExtResource("6_dbujg")]
 
 [node name="Level_obstacle" type="Node" parent="."]
-
-[node name="torch" parent="." instance=ExtResource("6_hcf6g")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -15, 0, -1)
