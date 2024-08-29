@@ -2,24 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxpkfkmdvc1qq"
-path.s3tc="res://.godot/imported/lamp_1.png-4522dfe29e251e58f4c285bf18865636.s3tc.ctex"
+uid="uid://c6a7pnl0ah3lf"
+path="res://.godot/imported/basic_fist_left_hand_0.png-34c1dc5b4de7a17f2a180191bcd54ca8.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
-"md5": "4897a095bb8683e1782942e987e481a5"
+"md5": "a5b37645b866114e0425629808f79536"
 }
 
 [deps]
 
-source_file="res://build blocks/lamp_1.png"
-dest_files=["res://.godot/imported/lamp_1.png-4522dfe29e251e58f4c285bf18865636.s3tc.ctex"]
+source_file="res://Fists/Basic_fist/baasic_fist_left/basic_fist_left_hand_0.png"
+dest_files=["res://.godot/imported/basic_fist_left_hand_0.png-34c1dc5b4de7a17f2a180191bcd54ca8.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

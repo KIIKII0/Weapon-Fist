@@ -10,7 +10,8 @@ var sensitivity = 0.12
 var gravity = Globvar.gravity
 var num_of_jumps = 0
 var sprinting = false
-var weapon_to_spawn
+var weapon_to_spawn_left 
+var weapon_to_spawn_right
 #the callbacks to the elements to the player
 @onready var head := $Head
 @onready var Camera := $Head/Camera3D
@@ -51,10 +52,13 @@ func _input(event):
 func what_coliding():
 	if Reach.get_collider() and Reach.get_collider().is_in_group("Weapons"):
 		var weapon_name = Reach.get_collider().get_name()
-		weapon_name += "hand"
-		weapon_to_spawn = Globvar.get(weapon_name).instantiate()
+		var weapon_name_right = weapon_name + "handright"
+		var weapon_name_left = weapon_name + "handleft"
+		weapon_to_spawn_right = Globvar.get(weapon_name_right).instantiate()
+		weapon_to_spawn_left = Globvar.get(weapon_name_left).instantiate()
 	else:
-		weapon_to_spawn = null
+		weapon_to_spawn_right = null
+		weapon_to_spawn_left = null
 
 #handle speed and number or jumps and also gravity
 func _physics_process(delta):
@@ -103,20 +107,20 @@ func _physics_process(delta):
 	#adding weapon to left arm
 	if Input.is_action_just_pressed("left_hand_pickup"):
 		what_coliding()
-		if weapon_to_spawn != null:
+		if weapon_to_spawn_left != null:
 			if left_arm.get_child(0) != null:
 				left_arm.get_child(0).queue_free()
-			left_arm.add_child(weapon_to_spawn)
+			left_arm.add_child(weapon_to_spawn_left)
 	else:
 		pass
 		
 	#adding weapon to right hand
 	if Input.is_action_just_pressed("right_hand_pickup"):
 		what_coliding()
-		if weapon_to_spawn != null:
+		if weapon_to_spawn_right != null:
 			if right_arm.get_child(0) != null:
 				right_arm.get_child(0).queue_free()
-			right_arm.add_child(weapon_to_spawn)
+			right_arm.add_child(weapon_to_spawn_right)
 	else:
 		pass
 	move_and_slide()

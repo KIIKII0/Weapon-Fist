@@ -2,24 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bya5e7hsxhbem"
-path.s3tc="res://.godot/imported/lamp_0.png-c988a1a1ebff90da52ee06fe26a1468d.s3tc.ctex"
+uid="uid://mxdoyh036c4v"
+path="res://.godot/imported/knockbac_fist_right_hand_7.png-d26a88632c151ce789984fe29155e97a.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
-"md5": "7dee704627b677aba95c5aed3a2efbe2"
+"md5": "3a830505be31cfc879bf0511daad5255"
 }
 
 [deps]
 
-source_file="res://build blocks/lamp_0.png"
-dest_files=["res://.godot/imported/lamp_0.png-c988a1a1ebff90da52ee06fe26a1468d.s3tc.ctex"]
+source_file="res://Fists/knocback_fist/knocback_fist_right/knockbac_fist_right_hand_7.png"
+dest_files=["res://.godot/imported/knockbac_fist_right_hand_7.png-d26a88632c151ce789984fe29155e97a.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

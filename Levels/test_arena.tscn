@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Levels/test_arena.gd" id="1_gqnpy"]
 [ext_resource type="PackedScene" uid="uid://dtpsxrfqijcq7" path="res://Character/Bob.tscn" id="2_wkij7"]
-[ext_resource type="PackedScene" uid="uid://fpomlve2vlx2" path="res://Fists/knocback_fist/knocbackfist.tscn" id="5_we1k7"]
+[ext_resource type="PackedScene" uid="uid://fpomlve2vlx2" path="res://Fists/knocback_fist/knocbackfist.tscn" id="6_4xg2v"]
 [ext_resource type="PackedScene" uid="uid://bdgjmapd785cg" path="res://Control_Scene/pause_menu.tscn" id="6_dbujg"]
 [ext_resource type="PackedScene" uid="uid://cn5uunxn2kvwt" path="res://Fists/Basic_fist/basicfist.tscn" id="7_u2bv5"]
 
@@ -93,6 +93,10 @@ data = PackedVector3Array(-29, 5, 0.5, 29, 5, 0.5, -29, -5, 0.5, 29, 5, 0.5, 29,
 [node name="Test_Arean" type="Node3D"]
 process_mode = 3
 script = ExtResource("1_gqnpy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1nb0b")
@@ -190,8 +194,8 @@ shape = SubResource("ConcavePolygonShape3D_k01iy")
 [node name="basicfist" parent="Weapons" instance=ExtResource("7_u2bv5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, 0)
 
-[node name="knocbackfist" parent="Weapons" instance=ExtResource("5_we1k7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.27552, 0.927138, 0)
+[node name="knocbackfist" parent="Weapons" instance=ExtResource("6_4xg2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.16463, -0.0374289, 2.55264)
 
 [node name="Bob" parent="." instance=ExtResource("2_wkij7")]
 process_mode = 1

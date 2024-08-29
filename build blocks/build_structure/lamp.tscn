@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://c5r46g3e8uj4f"]
 
-[ext_resource type="Texture2D" uid="uid://bya5e7hsxhbem" path="res://build blocks/lamp_0.png" id="1_qllxn"]
-[ext_resource type="Texture2D" uid="uid://bxpkfkmdvc1qq" path="res://build blocks/lamp_1.png" id="2_t1q5j"]
+[ext_resource type="Texture2D" uid="uid://bya5e7hsxhbem" path="res://build blocks/build_structure/lamp_0.png" id="1_qllxn"]
+[ext_resource type="Texture2D" uid="uid://bxpkfkmdvc1qq" path="res://build blocks/build_structure/lamp_1.png" id="2_t1q5j"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aa6qh"]
 resource_name = "material_0"
