@@ -17,8 +17,9 @@ script/source = "extends Node3D
 @onready var hurtbox = $hurt_box
 @onready var anima = $AnimationPlayer
 @onready var parent_hand = get_parent().get_name()
+@onready var hand = get_parent()
 @onready var character = get_tree().get_nodes_in_group(\"Player\")[0]
-@onready var raycast = character.get_node(\"Head/Camera3D/RayCast3D\")
+@onready var raycast = $RayCast3D
 @export var damaga_dealt: float = Globvar.knockback_fist_power
 @export var knockback_force: float = Globvar.knockback_fist_force
 # Called when the node enters the scene tree for the first time.
@@ -28,7 +29,10 @@ func _ready():
 func _physics_process(delta):
 	if Input.is_action_just_pressed(\"attack_left\") and parent_hand == \"left_arm\":
 		anima.play(\"basic attack left\",-1,1.8)
-		print(raycast)
+		if raycast.is_colliding():
+			monkey()
+		else:
+			pass
 	else:
 		pass
 
@@ -39,6 +43,12 @@ func _on_hurt_box_body_entered(body):
 			get_tree().call_group(\"Enemies\", \"knocback\", knockback_force, global_transform.origin)
 	
 		
+func monkey():
+	var collision_point = raycast.get_collision_point()
+	var origin_point = hand.get_global_transform().origin
+	var diffrence = origin_point - collision_point
+	var speed = 7
+	character.velocity += diffrence * speed
 
 "
 
@@ -588,5 +598,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="hurt_box"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.0151616, 0.25912, -6.62762e-10)
 shape = SubResource("CapsuleShape3D_lvkad")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(2, 0, 0)
 
 [connection signal="body_entered" from="hurt_box" to="." method="_on_hurt_box_body_entered"]
