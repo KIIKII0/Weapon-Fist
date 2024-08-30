@@ -47,8 +47,8 @@ func monkey():
 	var collision_point = raycast.get_collision_point()
 	var origin_point = hand.get_global_transform().origin
 	var diffrence = origin_point - collision_point
-	var speed = 7
-	character.velocity += diffrence * speed
+	var monkey_force = 7
+	character.velocity += diffrence * monkey_force
 
 "
 
@@ -600,6 +600,7 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.015
 shape = SubResource("CapsuleShape3D_lvkad")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.253, 0)
 target_position = Vector3(2, 0, 0)
 
 [connection signal="body_entered" from="hurt_box" to="." method="_on_hurt_box_body_entered"]
