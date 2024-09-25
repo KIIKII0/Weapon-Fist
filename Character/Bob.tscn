@@ -1,28 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dtpsxrfqijcq7"]
+[gd_scene load_steps=5 format=3 uid="uid://dtpsxrfqijcq7"]
 
 [ext_resource type="Script" path="res://Character/Bob.gd" id="1_rwiwa"]
+[ext_resource type="FontFile" uid="uid://cvv4h0icwkof8" path="res://build blocks/Font/Xolonium-Bold.ttf" id="2_ry2x5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hvhaa"]
 radius = 0.615
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_q3ub2"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y7f5e"]
-bg_color = Color(0.533333, 0.0666667, 0.0823529, 0.784314)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-border_blend = true
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kbisg"]
-bg_color = Color(0.160725, 0.391563, 0.168376, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
 
 [node name="Bob" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_rwiwa")
@@ -51,6 +35,10 @@ transform = Transform3D(0.325568, 0.945519, 0, -0.945518, 0.325568, 0, 0, 0, 1, 
 [node name="left_arm" type="Node3D" parent="Head/Camera3D/arms"]
 transform = Transform3D(0.325568, -0.945519, 0, 0.945518, 0.325568, 0, 0, 0, 1, -0.295, 0.315, -0.91)
 
+[node name="sliding_cast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.949309, 0)
+target_position = Vector3(0, 0, 1)
+
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -59,17 +47,41 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Health_Bar" type="ProgressBar" parent="UI"]
+[node name="essential_container" type="VBoxContainer" parent="UI"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.01
-anchor_top = 0.917
-anchor_right = 0.266
-anchor_bottom = 0.963
-offset_left = 0.48
-offset_top = -0.216064
-offset_right = 0.567993
-offset_bottom = -0.0239868
-theme_override_styles/background = SubResource("StyleBoxFlat_y7f5e")
-theme_override_styles/fill = SubResource("StyleBoxFlat_kbisg")
-show_percentage = false
+anchor_top = 0.788
+anchor_right = 0.183
+anchor_bottom = 1.0
+offset_top = -7.04004
+offset_right = -0.360016
+grow_vertical = 0
+
+[node name="Health_Bar" type="Label" parent="UI/essential_container"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0.741176, 0.231373, 0.819608)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("2_ry2x5")
+theme_override_font_sizes/font_size = 50
+text = "100%"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="speedometer" type="Label" parent="UI/essential_container"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0.741176, 0.231373, 0.819608)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("2_ry2x5")
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true

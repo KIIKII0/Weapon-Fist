@@ -1,25 +1,44 @@
 extends CharacterBody3D
 
 #vars 
-@export var health: float = 100
-var SPEED 
+@export var max_health: float = 100
+var health: float = max_health
+var SPEED: float
 var normal_speed = Globvar.normal_speed
-var sprint_speed = Globvar.normal_speed * 1.7
+var sprint_speed = Globvar.sprint_speed
+var crouch_speed = Globvar.crouch_speed
 var JUMP_VELOCITY = Globvar.jump_velocity
+
+
 var sensitivity = 0.12
 var gravity = Globvar.gravity
 var num_of_jumps = 0
 var sprinting = false
+var sliding = false
+
+var sliding_height = 1
+var standing_height = 2
 var weapon_to_spawn_left 
 var weapon_to_spawn_right
+
+enum movement {
+	Walking,
+	Sprinting,
+	Crouching,
+	Sliding }
+
+var cuurent_state: movement = movement.Walking
+
 #the callbacks to the elements to the player
 @onready var head := $Head
 @onready var Camera := $Head/Camera3D
 @onready var Reach := $Head/Camera3D/RayCast3D
 @onready var right_arm := $Head/Camera3D/arms/right_arm
 @onready var left_arm :=$Head/Camera3D/arms/left_arm
-@onready var health_bar := $UI/Health_Bar
-
+@onready var player_colision := $CollisionShape3D
+@onready var health_bar := $UI/essential_container/Health_Bar
+@onready var speedometer := $UI/essential_container/speedometer
+@onready var sliding_cast = $sliding_cast
 #function that are responsible for update damage, knockback etc.
 func damage(hit_points):
 	update_health_bar()
@@ -33,7 +52,12 @@ func damage(hit_points):
 		die()
 #updating healthbar
 func update_health_bar():
-	health_bar.value = health
+	var health_percentage = (health / max_health) * 100
+	health_bar.text = str(round(health_percentage)) + "% "
+	
+func update_speedometer():
+	var cuurent_speed = velocity.length() * 5
+	speedometer.text = str(round(cuurent_speed)) + "KM/H"
 
 func die():
 	pass
@@ -62,7 +86,24 @@ func what_coliding():
 
 #handle speed and number or jumps and also gravity
 func _physics_process(delta):
-	SPEED = normal_speed
+	update_speedometer()
+	print(velocity.length())
+	print(cuurent_state)
+	match cuurent_state:
+		movement.Walking:
+			SPEED = lerp(SPEED, normal_speed, delta * 3)
+			player_colision.shape.set_height(standing_height)
+		movement.Sprinting:
+			SPEED = lerp(SPEED,sprint_speed,delta * 5)
+			player_colision.shape.set_height(standing_height)
+		movement.Crouching:
+			player_colision.shape.set_height(sliding_height)
+		movement.Sliding:
+			player_colision.shape.set_height(sliding_height)
+			SPEED -= delta * 2
+			if SPEED < 4:
+				cuurent_state = movement.Walking
+	
 	if is_on_floor():
 		num_of_jumps = 2
 	if not is_on_floor():
@@ -70,7 +111,6 @@ func _physics_process(delta):
 
 	# Handle jump and double jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		
 		if num_of_jumps == 2:
 			num_of_jumps -= 1
 			velocity.y = JUMP_VELOCITY
@@ -79,15 +119,26 @@ func _physics_process(delta):
 			num_of_jumps -= 1
 			velocity.y = JUMP_VELOCITY
 			
-	#sprinting
-	if sprinting:
-		SPEED = sprint_speed
-
-	if Input.is_action_just_pressed("Sprint") and not sprinting:
-		sprinting = true
-	elif Input.is_action_just_pressed("Sprint") and sprinting:
-		sprinting = false
-
+	#Sprinting
+	if Input.is_action_just_pressed("Sprint"):
+		if cuurent_state == movement.Walking:
+			cuurent_state = movement.Sprinting
+		elif cuurent_state == movement.Sprinting:
+			cuurent_state = movement.Walking
+		elif cuurent_state == movement.Sliding:
+			cuurent_state = movement.Sprinting
+	#crouching
+	if Input.is_action_just_pressed("crouch"):
+		if cuurent_state == movement.Walking:
+			cuurent_state = movement.Crouching
+		elif cuurent_state == movement.Crouching:
+			cuurent_state = movement.Walking
+			
+	if Input.is_action_just_pressed('crouch') and SPEED > 6:
+		if cuurent_state == movement.Sprinting:
+			cuurent_state = movement.Sliding
+		elif cuurent_state == movement.Sliding:
+			cuurent_state = movement.Sprinting
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backwards")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -95,7 +146,7 @@ func _physics_process(delta):
 		if direction:
 			velocity.x = direction.x * SPEED
 			velocity.z = direction.z * SPEED
-		#the smi realistic slow effecct when running
+		#the simulate realistic slow effecct when running
 		else: 
 			velocity.x = lerp(velocity.x, direction.x * SPEED, delta * 6.0)
 			velocity.z = lerp(velocity.z, direction.z * SPEED, delta * 6.0)

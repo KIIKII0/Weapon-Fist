@@ -1,10 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://crhtid1xla64c"]
+[gd_scene load_steps=25 format=3 uid="uid://crhtid1xla64c"]
 
 [ext_resource type="Script" path="res://Levels/test_arena.gd" id="1_gqnpy"]
 [ext_resource type="PackedScene" uid="uid://dtpsxrfqijcq7" path="res://Character/Bob.tscn" id="2_wkij7"]
-[ext_resource type="PackedScene" uid="uid://fpomlve2vlx2" path="res://Fists/knocback_fist/knocbackfist.tscn" id="6_4xg2v"]
 [ext_resource type="PackedScene" uid="uid://bdgjmapd785cg" path="res://Control_Scene/pause_menu.tscn" id="6_dbujg"]
-[ext_resource type="PackedScene" uid="uid://cn5uunxn2kvwt" path="res://Fists/Basic_fist/basicfist.tscn" id="7_u2bv5"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ww15y"]
 load_path = "res://.godot/imported/panorama_image.png-a91016f4dd69308b3de06167c4926844.s3tc.ctex"
@@ -116,7 +114,7 @@ mesh = SubResource("PrismMesh_jyw53")
 shape = SubResource("ConcavePolygonShape3D_b6jkj")
 
 [node name="ramp2" type="MeshInstance3D" parent="NavigationRegion3D/Level_buildings"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22, 1.528, -17)
+transform = Transform3D(-2.44498e-07, 0, -1, 0, 11.854, 0, 5.59346, 0, -4.37114e-08, 22, 17.9246, -9.94099)
 mesh = SubResource("PrismMesh_jyw53")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Level_buildings/ramp2"]
@@ -190,12 +188,6 @@ mesh = SubResource("BoxMesh_s72qy")
 shape = SubResource("ConcavePolygonShape3D_k01iy")
 
 [node name="Weapons" type="Node" parent="."]
-
-[node name="basicfist" parent="Weapons" instance=ExtResource("7_u2bv5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, 0)
-
-[node name="knocbackfist" parent="Weapons" instance=ExtResource("6_4xg2v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.16463, -0.0374289, 2.55264)
 
 [node name="Bob" parent="." instance=ExtResource("2_wkij7")]
 process_mode = 1
