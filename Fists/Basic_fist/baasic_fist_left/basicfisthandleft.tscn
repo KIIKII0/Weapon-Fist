@@ -10,22 +10,46 @@
 [sub_resource type="GDScript" id="GDScript_fxrht"]
 script/source = "extends Node3D
 
+
+var grappling = false
+var hookpoint = Vector3()
+var hookpoint_get = false
+
 @onready var hurtbox = $hurt_box
 @onready var anima = $AnimationPlayer
+@onready var grapple_reach = $grapple_reach
 @onready var parent_hand = get_parent().get_name()
 @export var damaga_dealt: float = Globvar.basic_fist_power
+@onready var character = get_tree().get_nodes_in_group(\"Player\")[0]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$hurt_box/CollisionShape3D.disabled = true
 func _physics_process(delta):
 	if Input.is_action_just_pressed(\"attack_left\") and parent_hand == \"left_arm\":
 		anima.play(\"basic attack left\",-1, 2)
-	else:
-		pass
-
+		if grapple_reach.is_colliding() and not grappling:
+			grappling = true
+	if grappling:
+		if not hookpoint_get:
+			hookpoint = grapple_reach.get_collision_point()
+			hookpoint_get = true
+		if hookpoint.distance_to(character.transform.origin) > 5:
+			if hookpoint_get:
+				character.transform.origin = lerp(character.transform.origin, hookpoint, 0.04)
+				var hook_direction = hookpoint - character.transform.origin
+				character.velocity += hook_direction * 5 * delta
+		else:
+			grappling = false
+			hookpoint_get = false
+			
+		if Input.is_action_just_pressed(\"jump\") and grappling:
+			grappling = false
+			hookpoint_get = false
+			
+'''			
 func _on_hurt_box_body_entered(body):
 	if body.is_in_group(\"Enemies\"):
-		get_tree().call_group(\"Enemies\", \"damage\", damaga_dealt)
+		get_tree().call_group(\"Enemies\", \"damage\", damaga_dealt)'''
 "
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lip7l"]
@@ -522,6 +546,10 @@ skeleton = NodePath("")
 libraries = {
 "": SubResource("AnimationLibrary_7u8f1")
 }
+
+[node name="grapple_reach" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.105835, 0.262235, 4.62621e-09)
+target_position = Vector3(50, 0, 0)
 
 [node name="hurt_box" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03172, 0, 4.50978e-08)

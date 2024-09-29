@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dtpsxrfqijcq7"]
+[gd_scene load_steps=5 format=3 uid="uid://dtpsxrfqijcq7"]
 
 [ext_resource type="Script" path="res://Character/Bob.gd" id="1_rwiwa"]
-[ext_resource type="PackedScene" uid="uid://s12xl6jvj61f" path="res://Fists/Basic_fist/baasic_fist_left/basicfisthandleft.tscn" id="2_mu4fk"]
 [ext_resource type="FontFile" uid="uid://cvv4h0icwkof8" path="res://build blocks/Font/Xolonium-Bold.ttf" id="2_ry2x5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hvhaa"]
@@ -28,20 +27,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.178129)
 target_position = Vector3(0, 0, -3)
 
 [node name="grapple_reach" type="RayCast3D" parent="Head/Camera3D"]
-enabled = false
-exclude_parent = false
 target_position = Vector3(0, 0, -50)
 
 [node name="arms" type="Node3D" parent="Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.637744, 0.379883)
+visible = false
 
 [node name="right_arm" type="Node3D" parent="Head/Camera3D/arms"]
 transform = Transform3D(0.325568, 0.945519, 0, -0.945518, 0.325568, 0, 0, 0, 1, 0.295, 0.315, -0.91)
 
 [node name="left_arm" type="Node3D" parent="Head/Camera3D/arms"]
 transform = Transform3D(0.325568, -0.945519, 0, 0.945518, 0.325568, 0, 0, 0, 1, -0.295, 0.315, -0.91)
-
-[node name="basicfisthandleft" parent="Head/Camera3D/arms/left_arm" instance=ExtResource("2_mu4fk")]
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3

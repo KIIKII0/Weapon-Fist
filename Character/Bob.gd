@@ -9,23 +9,20 @@ var sprint_speed = Globvar.sprint_speed
 var crouch_speed = Globvar.crouch_speed
 var JUMP_VELOCITY = Globvar.jump_velocity
 
-
+#all usful stuff
 var sensitivity = 0.12
 var gravity = Globvar.gravity
 var num_of_jumps = 0
 var sprinting = false
-var sliding = false
 
-var sliding_height = 1
-var standing_height = 2
+#weapon spawn for futere projects
 var weapon_to_spawn_left 
 var weapon_to_spawn_right
 
 enum movement {
 	Walking,
 	Sprinting,
-	Crouching,
-	Sliding }
+	}
 
 var cuurent_state: movement = movement.Walking
 
@@ -38,7 +35,7 @@ var cuurent_state: movement = movement.Walking
 @onready var player_colision := $CollisionShape3D
 @onready var health_bar := $UI/essential_container/Health_Bar
 @onready var speedometer := $UI/essential_container/speedometer
-@onready var sliding_cast = $sliding_cast
+@onready var grapple_reach := $Head/Camera3D/grapple_reach
 #function that are responsible for update damage, knockback etc.
 func damage(hit_points):
 	update_health_bar()
@@ -67,11 +64,12 @@ func _ready():
 	
 #rotation of the camera with the mouse
 func _input(event):
+	
 	if event is InputEventMouseMotion:
 		rotate_y(deg_to_rad((-event.relative.x * sensitivity)))
 		head.rotate_x(deg_to_rad((-event.relative.y * sensitivity)))
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-90),deg_to_rad(90))
-
+	
 #handle and check what are player looking for
 func what_coliding():
 	if Reach.get_collider() and Reach.get_collider().is_in_group("Weapons"):
@@ -92,17 +90,8 @@ func _physics_process(delta):
 	match cuurent_state:
 		movement.Walking:
 			SPEED = lerp(SPEED, normal_speed, delta * 3)
-			player_colision.shape.set_height(standing_height)
 		movement.Sprinting:
 			SPEED = lerp(SPEED,sprint_speed,delta * 5)
-			player_colision.shape.set_height(standing_height)
-		movement.Crouching:
-			player_colision.shape.set_height(sliding_height)
-		movement.Sliding:
-			player_colision.shape.set_height(sliding_height)
-			SPEED -= delta * 2
-			if SPEED < 4:
-				cuurent_state = movement.Walking
 	
 	if is_on_floor():
 		num_of_jumps = 2
@@ -125,20 +114,6 @@ func _physics_process(delta):
 			cuurent_state = movement.Sprinting
 		elif cuurent_state == movement.Sprinting:
 			cuurent_state = movement.Walking
-		elif cuurent_state == movement.Sliding:
-			cuurent_state = movement.Sprinting
-	#crouching
-	if Input.is_action_just_pressed("crouch"):
-		if cuurent_state == movement.Walking:
-			cuurent_state = movement.Crouching
-		elif cuurent_state == movement.Crouching:
-			cuurent_state = movement.Walking
-			
-	if Input.is_action_just_pressed('crouch') and SPEED > 6:
-		if cuurent_state == movement.Sprinting:
-			cuurent_state = movement.Sliding
-		elif cuurent_state == movement.Sliding:
-			cuurent_state = movement.Sprinting
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backwards")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
